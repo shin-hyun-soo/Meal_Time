@@ -1,11 +1,12 @@
-package com.example.meal_time
+package com.example.meal_time.auth
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.meal_time.R
 
-class IntroActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_intro)
+        setContentView(R.layout.activity_login)
     }
 }
