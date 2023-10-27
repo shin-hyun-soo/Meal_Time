@@ -1,11 +1,13 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    //4.4 apply true 시 에러 발생해 4.3.10 + true 수정 후 에러 수정 완료
+    id 'com.google.gms.google-services' version "4.3.10" apply true
 }
 
 android {
     namespace 'com.example.meal_time'
-    compileSdk 32
+    compileSdk 34 //firebase 설정 오류 때문에 32->34로 변경
 
     defaultConfig {
         applicationId "com.example.meal_time"
@@ -34,14 +36,19 @@ android {
         enabled true
     }
 }
+//firebase 세팅 버전 낮추면서 해결 완료
+apply plugin: 'com.google.gms.google-services'
 
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation(platform("com.google.firebase:firebase-bom:30.0.0"))
+    //firebase-bom도 32.4.0-> 30.0.0으로 버전 낮춰 해결 완료
+    implementation("com.google.firebase:firebase-analytics-ktx")
 }
