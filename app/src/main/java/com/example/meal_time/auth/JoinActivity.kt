@@ -23,9 +23,10 @@ class JoinActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //onCreate에서 FirebaseAuth 인스턴스 초기화
         auth = Firebase.auth
-
+        //레이아웃 파일 결합을 위해  databindingutil 사용
         binding = DataBindingUtil.setContentView(this, R.layout.activity_join )
 
+        //회원가입 버튼 누를 시 이벤트 처리
         binding.joinBtn.setOnClickListener {
 
             var check = true
