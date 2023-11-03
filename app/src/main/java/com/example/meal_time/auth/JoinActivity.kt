@@ -65,7 +65,7 @@ class JoinActivity : AppCompatActivity() {
 
                             Toast.makeText(this, "성공", Toast.LENGTH_LONG).show()
 
-                            val intent = Intent(this, MainActivity::class.java)
+                            val intent = Intent(this, LoginActivity::class.java)
                             //Activity가 실행되었을 때 뒤로 가기 버튼을 누르면 이전 회원가입 페이지로 돌아가지 않고 어플이 종료되도록 설정
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
