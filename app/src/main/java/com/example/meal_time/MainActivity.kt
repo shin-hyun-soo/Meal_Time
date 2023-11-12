@@ -23,10 +23,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
         //로그아웃 버튼 눌렀을때 이벤트 처리
-        binding.logoutBtn.setOnClickListener {
+        /*binding.logoutBtn.setOnClickListener {
             //로그아웃 기능
             auth.signOut()
             //로그인, 회원가입때랑 똑같이 뒤로가기 버튼을 눌렀을때 앱이 종료되게 동일하게 구현
@@ -34,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
 
-        }
+        }*/
     }
 }
 
