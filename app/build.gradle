@@ -54,4 +54,6 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:30.0.0"))
     //firebase-bom도 32.4.0-> 30.0.0으로 버전 낮춰 해결 완료
     implementation("com.google.firebase:firebase-analytics-ktx")
+    //realtime database 사용을 위해 추가
+    implementation'com.google.firebase:firebase-database-ktx'
 }
