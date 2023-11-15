@@ -37,12 +37,11 @@ class HomeFragment : Fragment() {
     ): View? {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-
+        //서진
         binding.talkTap.setOnClickListener {
 
             it.findNavController().navigate(R.id.action_homeFragment_to_talkFragment)
         }
-        //서진
         binding.recipeTap.setOnClickListener{
             it.findNavController().navigate(R.id.action_homeFragment_to_recipeFragment)
         }

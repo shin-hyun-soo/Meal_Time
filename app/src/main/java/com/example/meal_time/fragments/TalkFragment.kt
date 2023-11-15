@@ -47,6 +47,7 @@ class TalkFragment : Fragment() {
         binding.homeTap.setOnClickListener {
             it.findNavController().navigate(R.id.action_talkFragment_to_homeFragment)
         }
+        //서진
         binding.recipeTap.setOnClickListener{
             it.findNavController().navigate(R.id.action_talkFragment_to_recipeFragment)
         }

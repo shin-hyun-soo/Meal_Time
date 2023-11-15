@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.meal_time.R
 import com.example.meal_time.databinding.FragmentRecipeBinding
-
+//서진
 class RecipeFragment : Fragment() {
     private lateinit var binding : FragmentRecipeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
