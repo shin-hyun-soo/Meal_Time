@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/titleArea"
         android:text="title"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -15,6 +16,7 @@
         android:layout_height="wrap_content"/>
 
     <TextView
+        android:id="@+id/contentArea"
         android:text="content"
         android:textColor="@color/black"
         android:layout_marginLeft="20dp"
@@ -24,6 +26,7 @@
         android:layout_height="wrap_content"/>
 
     <TextView
+        android:id="@+id/timeArea"
         android:text="time"
         android:textColor="#999999"
         android:textSize="10sp"
