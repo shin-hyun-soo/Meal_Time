@@ -42,8 +42,10 @@ class HomeFragment : Fragment() {
 
             it.findNavController().navigate(R.id.action_homeFragment_to_talkFragment)
         }
-
-
+        //서진
+        binding.recipeTap.setOnClickListener{
+            it.findNavController().navigate(R.id.action_homeFragment_to_recipeFragment)
+        }
 
         return binding.root
     }
