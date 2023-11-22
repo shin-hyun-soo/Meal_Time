@@ -11,6 +11,7 @@ class FBRef {
 
         private val database = Firebase.database
 
+            //파이어베이스의 보드에 대한 정보
         val boardRef = database.getReference("board")
 
     }

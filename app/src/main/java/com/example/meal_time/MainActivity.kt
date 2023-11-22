@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import com.example.meal_time.auth.IntroActivity
 import com.example.meal_time.auth.LoginActivity
 import com.example.meal_time.databinding.ActivityMainBinding
+import com.example.meal_time.setting.SettingActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -29,6 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnSearch.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.settingBtn.setOnClickListener {
+            val intent = Intent(this, SettingActivity::class.java)
             startActivity(intent)
         }
         //로그아웃 버튼 눌렀을때 이벤트 처리

@@ -71,14 +71,13 @@ class TalkFragment : Fragment() {
         binding.homeTap.setOnClickListener {
             it.findNavController().navigate(R.id.action_talkFragment_to_homeFragment)
         }
-<<<<<<< HEAD
+
         getFBBoardData()
-=======
         //서진
         binding.recipeTap.setOnClickListener{
             it.findNavController().navigate(R.id.action_talkFragment_to_recipeFragment)
         }
->>>>>>> 4634f2f04e2fb097917a99b2919b081330d64000
+
 
         return binding.root
     }
