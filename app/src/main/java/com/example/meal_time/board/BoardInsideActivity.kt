@@ -8,10 +8,14 @@ import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.example.meal_time.R
+import com.example.meal_time.comment.CommentLVAdapter
+import com.example.meal_time.comment.CommentModel
 import com.example.meal_time.databinding.ActivityBoardInsideBinding
+import com.example.meal_time.utils.FBAuth
 import com.example.meal_time.utils.FBRef
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -26,6 +30,10 @@ class BoardInsideActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBoardInsideBinding
 
     private lateinit var key: String
+
+    private val commentDataList = mutableListOf<CommentModel>()
+
+    private lateinit var commentAdapter : CommentLVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -51,8 +59,61 @@ class BoardInsideActivity : AppCompatActivity() {
         getBoardData(key)
         getImageDate(key)
 
+        binding.commentBtn.setOnClickListener {
+            insertCommnet(key)
+        }
+
+        commentAdapter = CommentLVAdapter(commentDataList)
+        binding.commentLV.adapter = commentAdapter
+
+        getCommentData(key)
+    }
+
+    fun getCommentData(key : String) {
+        val postListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                commentDataList.clear()
+
+                for (dataModel in dataSnapshot.children) {
+
+                    val item = dataModel.getValue(CommentModel::class.java)
+                    commentDataList.add(item!!)
+                }
+
+                commentAdapter.notifyDataSetChanged()
+
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+            }
+        }
+        FBRef.commentRef.child(key).addValueEventListener(postListener)
+
 
     }
+
+    fun insertCommnet(key: String) {
+        //comment
+        // -Boardkey
+        //      - CommentKey(자동생성)
+        //          -CommentData
+        //          -CommentData
+        FBRef.commentRef
+            .child(key)
+            .push()
+            .setValue(
+                CommentModel(binding.commentArea.text.toString(),
+                             FBAuth.getTime()
+                )
+            )
+
+        Toast.makeText(this, "댓글 입력 완료", Toast.LENGTH_SHORT).show()
+        //댓글 입력하면 사라지게
+        binding.commentArea.setText("")
+
+   }
     //다이얼로그 띄우는 부분
     private fun showDialog() {
 
@@ -93,7 +154,7 @@ class BoardInsideActivity : AppCompatActivity() {
                     .load(task.result)
                     .into(imageViewFromFB)
             } else {
-
+                binding.getImageArea.isVisible = false
             }
         })
 
@@ -111,6 +172,17 @@ class BoardInsideActivity : AppCompatActivity() {
                     binding.titleArea.text = dataModel!!.title
                     binding.textArea.text = dataModel!!.content
                     binding.timeArea.text = dataModel!!.time
+
+                    //uid 값 받아와서 firebase uid = writer uid 값이 같으면 seticon 보여주기
+                    val myUid = FBAuth.getUid()
+                    val writerUid = dataModel.uid
+
+                    if (myUid.equals(writerUid)){
+                       Log.d(TAG, "내가 쓴 글")
+                        binding.boardSetIcon.isVisible = true
+                    } else {
+                        Log.d(TAG, "내가 쓴 글 아님")
+                    }
                     //에러가 발생하면 CATCH로 빠지기(예외처리)
                 }catch (e : Exception){
                     Log.d(TAG, "삭제완료")
