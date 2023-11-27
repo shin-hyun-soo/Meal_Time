@@ -46,7 +46,6 @@ class TalkFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_talk, container, false)
 
-
         boardRVAdapter = BoardListLVAdapter(boardDataList)
         binding.boardListView.adapter = boardRVAdapter
 

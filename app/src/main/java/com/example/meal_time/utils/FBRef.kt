@@ -15,6 +15,8 @@ class FBRef {
         val boardRef = database.getReference("board")
 
         val commentRef = database.getReference("comment")
+        //서진 오류나면 지울것
+        val chatRef = database.getReference("chat")
 
     }
 }
