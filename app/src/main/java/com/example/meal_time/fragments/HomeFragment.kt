@@ -42,8 +42,6 @@ class HomeFragment : Fragment() {
         rvTodoItems.layoutManager = LinearLayoutManager(context)
         todoAdapter = TodoAdapter(mutableListOf())
         rvTodoItems.adapter = todoAdapter
-        // Null check for EditText
-        //val etTodoTitle1: EditText = binding.etTodoTitle1
 
 
         binding.btnAddTodo2.setOnClickListener {

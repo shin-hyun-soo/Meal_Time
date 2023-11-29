@@ -22,7 +22,14 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        
+        <activity
+            android:name=".diary.DiaryActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
 
         <activity
             android:name=".setting.SettingActivity"

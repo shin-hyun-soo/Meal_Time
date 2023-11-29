@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.meal_time.databinding.ActivityMainBinding
+import com.example.meal_time.diary.DiaryActivity
 import com.example.meal_time.setting.SettingActivity
 import com.example.meal_time.timer.TimerActivity
 import com.example.meal_time.todolist.Todo
@@ -53,6 +54,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.timerbtn.setOnClickListener {
             val intent = Intent(this, TimerActivity::class.java)
+            startActivity(intent)
+        }
+        binding.diarybtn.setOnClickListener {
+            val intent = Intent(this, DiaryActivity::class.java)
             startActivity(intent)
         }
 
