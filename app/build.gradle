@@ -3,12 +3,14 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     //4.4 apply true 시 에러 발생해 4.3.10 + true 수정 후 에러 수정 완료
     id 'com.google.gms.google-services' version "4.3.10" apply true
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
     namespace 'com.example.meal_time'
     compileSdk 34 //firebase 설정 오류 때문에 32->34로 변경
-
+    buildToolsVersion "30.0.3"
     defaultConfig {
         applicationId "com.example.meal_time"
         minSdk 24
@@ -40,7 +42,11 @@ android {
 apply plugin: 'com.google.gms.google-services'
 
 dependencies {
-
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+    implementation 'com.google.code.gson:gson:2.8.8'
+    implementation "androidx.room:room-runtime:2.3.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'com.google.android.material:material:1.3.0-alpha02'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.10.0'
