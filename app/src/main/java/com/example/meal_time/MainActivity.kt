@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        todoAdapter = TodoAdapter(mutableListOf())
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 

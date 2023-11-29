@@ -39,21 +39,28 @@ class HomeFragment : Fragment() {
 
         // Null check for RecyclerView
         val rvTodoItems: RecyclerView = binding.rvTodoItems
+        // RecyclerView에 레이아웃 매니저를 설정합니다.
         rvTodoItems.layoutManager = LinearLayoutManager(context)
-        todoAdapter = TodoAdapter(mutableListOf())
+        // TodoAdapter를 초기화하고 RecyclerView에 설정합니다.
+        todoAdapter = TodoAdapter(requireContext(), mutableListOf())
         rvTodoItems.adapter = todoAdapter
 
-
+        // "추가" 버튼에 클릭 리스너를 등록합니다.
         binding.btnAddTodo2.setOnClickListener {
+            // 입력된 할 일의 제목을 가져옵니다.
             val todoTitle = etTodoTitle.text?.toString() ?: ""
+
+            // 제목이 비어있지 않다면 새로운 Todo 객체를 생성하고 어댑터에 추가합니다.
             if (todoTitle.isNotEmpty()) {
                 val todo = Todo(todoTitle)
                 todoAdapter.addTodo(todo)
+                // 입력 필드를 초기화합니다.
                 etTodoTitle.text.clear()
             }
         }
-
+        // "완료된 할 일 삭제" 버튼에 클릭 리스너를 등록합니다.
         binding.btnDeleteDoneTodo2.setOnClickListener {
+            // 어댑터에서 완료된 할 일을 삭제하는 함수를 호출합니다.
             todoAdapter.deleteDoneTodos()
         }
 
