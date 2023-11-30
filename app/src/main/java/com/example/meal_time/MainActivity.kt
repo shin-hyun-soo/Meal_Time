@@ -4,10 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.example.meal_time.auth.IntroActivity
-import com.example.meal_time.auth.LoginActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.meal_time.databinding.ActivityMainBinding
+import com.example.meal_time.diary.DiaryActivity
 import com.example.meal_time.setting.SettingActivity
+import com.example.meal_time.timer.TimerActivity
+import com.example.meal_time.todolist.Todo
+import com.example.meal_time.todolist.TodoAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -18,6 +21,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private lateinit var todoAdapter : TodoAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         auth = Firebase.auth
@@ -27,8 +32,31 @@ class MainActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        binding.btnSearch.setOnClickListener {
-            val intent = Intent(this, SearchActivity::class.java)
+        /*rvTodoItems.adapter = todoAdapter
+        rvTodoItems.layoutManager = LinearLayoutManager(this)
+
+
+        binding.btnAddTodo2.setOnClickListener {
+            val todoTitle = etTodoTitle1.text.toString()
+            if (todoTitle.isNotEmpty()) {
+                val todo = Todo(todoTitle)
+                todoAdapter.addTodo(todo)
+                etTodoTitle1.text.clear()
+            }
+        }
+
+        binding.btnDeleteDoneTodo2.setOnClickListener {
+            todoAdapter.deleteDoneTodos()
+        }
+
+         */
+
+        binding.timerbtn.setOnClickListener {
+            val intent = Intent(this, TimerActivity::class.java)
+            startActivity(intent)
+        }
+        binding.diarybtn.setOnClickListener {
+            val intent = Intent(this, DiaryActivity::class.java)
             startActivity(intent)
         }
 
