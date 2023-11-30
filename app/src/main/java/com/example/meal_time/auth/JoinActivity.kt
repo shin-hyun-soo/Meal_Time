@@ -7,7 +7,9 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.example.meal_time.MainActivity
 import com.example.meal_time.R
+import com.example.meal_time.chat.ChatModel
 import com.example.meal_time.databinding.ActivityJoinBinding
+import com.example.meal_time.utils.FBRef
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -69,14 +71,17 @@ class JoinActivity : AppCompatActivity() {
                             //Activity가 실행되었을 때 뒤로 가기 버튼을 누르면 이전 회원가입 페이지로 돌아가지 않고 어플이 종료되도록 설정
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
+                            addUserToDatabase(auth.currentUser?.uid!!)
 
                         } else {
                             Toast.makeText(this, "실패", Toast.LENGTH_LONG).show() }
                     }
                 }
             }
+
         }
-
-
+    private fun addUserToDatabase(uId:String){
+        FBRef.chatRef.child(uId).setValue(ChatModel(uId))
+    }
 
 }

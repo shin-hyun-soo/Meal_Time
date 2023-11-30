@@ -9,11 +9,12 @@
         tools:context=".fragments.RecipeFragment"
         >
 
-        <ListView
-            android:id="@+id/chatListView"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/user_recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="70dp"/>
+            android:layout_marginBottom="70dp"
+            tools:listitem="@layout/chat_list_item"/>
 
         <LinearLayout
             android:id="@+id/linearLayout"
