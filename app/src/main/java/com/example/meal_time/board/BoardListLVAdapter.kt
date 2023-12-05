@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.example.meal_time.R
 import com.example.meal_time.utils.FBAuth
-import kotlinx.coroutines.NonDisposableHandle.parent
+import com.example.meal_time.R
 
-class BoardListLVAdapter(val boardList : MutableList<BoardModel>): BaseAdapter() {
+class BoardListLVAdapter(var boardList: List<BoardModel>): BaseAdapter() {
     override fun getCount(): Int {
         return boardList.size
     }

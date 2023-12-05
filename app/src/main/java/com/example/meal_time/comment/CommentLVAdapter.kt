@@ -1,16 +1,14 @@
 package com.example.meal_time.comment
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.LinearLayout
 import android.widget.TextView
+import com.example.meal_time.board.BoardModel
 import com.example.meal_time.R
-import com.example.meal_time.utils.FBAuth
 
-class CommentLVAdapter(val commentList : MutableList<CommentModel>) : BaseAdapter() {
+class CommentLVAdapter(val commentList: List<CommentModel>) : BaseAdapter() {
     override fun getCount(): Int {
         return commentList.size
     }

@@ -14,7 +14,6 @@ import com.example.meal_time.R
 import com.example.meal_time.databinding.FragmentHomeBinding
 import com.example.meal_time.todolist.Todo
 import com.example.meal_time.todolist.TodoAdapter
-import kotlinx.android.synthetic.main.fragment_home.*
 
 
 class HomeFragment : Fragment() {
@@ -47,16 +46,16 @@ class HomeFragment : Fragment() {
 
         // "추가" 버튼에 클릭 리스너를 등록합니다.
         binding.btnAddTodo2.setOnClickListener {
-            // 입력된 할 일의 제목을 가져옵니다.
-            val todoTitle = etTodoTitle.text?.toString() ?: ""
-
-            // 제목이 비어있지 않다면 새로운 Todo 객체를 생성하고 어댑터에 추가합니다.
-            if (todoTitle.isNotEmpty()) {
-                val todo = Todo(todoTitle)
-                todoAdapter.addTodo(todo)
-                // 입력 필드를 초기화합니다.
-                etTodoTitle.text.clear()
-            }
+//            // 입력된 할 일의 제목을 가져옵니다.
+//            val todoTitle = etTodoTitle.text?.toString() ?: ""
+//
+//            // 제목이 비어있지 않다면 새로운 Todo 객체를 생성하고 어댑터에 추가합니다.
+//            if (todoTitle.isNotEmpty()) {
+//                val todo = Todo(todoTitle)
+//                todoAdapter.addTodo(todo)
+//                // 입력 필드를 초기화합니다.
+//                etTodoTitle.text.clear()
+//            }
         }
         // "완료된 할 일 삭제" 버튼에 클릭 리스너를 등록합니다.
         binding.btnDeleteDoneTodo2.setOnClickListener {
