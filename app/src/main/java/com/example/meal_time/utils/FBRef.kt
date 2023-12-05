@@ -18,5 +18,7 @@ class FBRef {
         //서진 오류나면 지울것
         val chatRef = database.getReference("chat")
 
+        val chatsRef = database.getReference("chats")
+
     }
 }

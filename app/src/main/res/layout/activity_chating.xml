@@ -31,15 +31,14 @@
                 android:hint="메세지를 입력하세요"
                 android:paddingStart="10dp"/>
 
-            <androidx.appcompat.widget.AppCompatButton
+            <ImageView
                 android:id="@+id/sent_btn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="15"
-                android:text="전송"
-                android:textColor="@android:color/white"/>
+                android:src="@drawable/sendbtn"/>
         </LinearLayout>
     </RelativeLayout>
 </layout>

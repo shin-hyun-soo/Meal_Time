@@ -91,7 +91,6 @@ class BoardInsideActivity : AppCompatActivity() {
         }
         FBRef.commentRef.child(key).addValueEventListener(postListener)
 
-
     }
 
     fun insertCommnet(key: String) {
