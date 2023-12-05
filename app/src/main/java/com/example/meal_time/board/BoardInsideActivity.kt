@@ -31,9 +31,9 @@ class BoardInsideActivity : AppCompatActivity() {
 
     private lateinit var key: String
 
-    private val commentDataList = mutableListOf<CommentModel>()
+    private val commentDataList = mutableListOf<CommentModel>() //댓글
 
-    private lateinit var commentAdapter : CommentLVAdapter
+    private lateinit var commentAdapter : CommentLVAdapter //댓글
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
