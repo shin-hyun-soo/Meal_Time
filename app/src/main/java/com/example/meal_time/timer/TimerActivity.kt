@@ -7,9 +7,12 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import com.example.meal_time.R
+import com.example.meal_time.databinding.ActivityTimerBinding
 
 class TimerActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityTimerBinding
     // 남은 분과 초를 나타내는 텍스트뷰들
     private val remainMinutesTextView: TextView by lazy {
         findViewById(R.id.remainMinutesTextView)
@@ -29,12 +32,28 @@ class TimerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_timer)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_timer)
+        //setContentView(R.layout.activity_timer)
 // 뷰들을 바인딩하고 효과음 초기화
+        binding.btn3min.setOnClickListener {
+            start3MinutesTimer()
+        }
+        binding.btn30min.setOnClickListener {
+            start30MinutesTimer()
+        }
         bindViews()
         initSounds()
     }
-
+    private fun start3MinutesTimer(){
+        stopCountDown()
+        seekBar.progress = 3 // 3분으로 시크바 설정
+        startCountDown()
+    }
+    private fun start30MinutesTimer(){
+        stopCountDown()
+        seekBar.progress = 30 // 30분으로 시크바 설정
+        startCountDown()
+    }
     override fun onResume() {
         super.onResume()
         soundPool.autoResume()
