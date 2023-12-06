@@ -1,8 +1,10 @@
 plugins {
     id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
     //4.4 apply true 시 에러 발생해 4.3.10 + true 수정 후 에러 수정 완료
     id 'com.google.gms.google-services'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -41,6 +43,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
     implementation "androidx.room:room-runtime:2.3.0"
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'com.google.android.material:material:1.3.0-alpha02'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'

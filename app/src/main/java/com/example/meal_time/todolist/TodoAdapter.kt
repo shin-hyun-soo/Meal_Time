@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.meal_time.R
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-//import kotlinx.android.synthetic.main.item_todo.view.*
+import kotlinx.android.synthetic.main.item_todo.view.*
 
 class TodoAdapter(
     private val context: Context,
@@ -75,15 +75,15 @@ class TodoAdapter(
         holder.itemView.apply {
 
             // 뷰홀더의 뷰들을 현재 할 일의 데이터로 설정
-//            tvTodoTitle.text = curTodo.title
-//            cbDone.isChecked = curTodo.isChecked
-//
-//            // 완료 체크박스의 체크 상태에 따라 텍스트의 취소선을 토글하고 데이터 업데이트
-//            toggleStrikeThrough(tvTodoTitle, curTodo.isChecked)
-//            cbDone.setOnCheckedChangeListener { _, isChecked ->
-//                toggleStrikeThrough(tvTodoTitle, isChecked)
-//                curTodo.isChecked = !curTodo.isChecked
-//            }
+            tvTodoTitle.text = curTodo.title
+            cbDone.isChecked = curTodo.isChecked
+
+            // 완료 체크박스의 체크 상태에 따라 텍스트의 취소선을 토글하고 데이터 업데이트
+            toggleStrikeThrough(tvTodoTitle, curTodo.isChecked)
+            cbDone.setOnCheckedChangeListener { _, isChecked ->
+                toggleStrikeThrough(tvTodoTitle, isChecked)
+                curTodo.isChecked = !curTodo.isChecked
+            }
         }
     }
     init {
