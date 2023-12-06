@@ -2,7 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     //4.4 apply true 시 에러 발생해 4.3.10 + true 수정 후 에러 수정 완료
-    id 'com.google.gms.google-services' version "4.3.10" apply true
+    id 'com.google.gms.google-services'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
 }
@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId "com.example.meal_time"
         minSdk 24
-        targetSdk 32
+        targetSdk 34
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -38,8 +38,6 @@ android {
         enabled true
     }
 }
-//firebase 세팅 버전 낮추면서 해결 완료
-apply plugin: 'com.google.gms.google-services'
 
 dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
@@ -74,4 +72,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'com.firebaseui:firebase-ui-storage:8.0.2'
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-beta01")
 }
